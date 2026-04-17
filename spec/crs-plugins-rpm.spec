@@ -7,10 +7,10 @@ URL: https://github.com/german-gonzalez-ruiz/mod_security_crs_plugins
 Group: System Environment/Daemons
 
 Source0: https://codeload.github.com/german-gonzalez-ruiz/mod_security_crs_plugins/tar.gz/refs/tags/v%{version}
-Source1: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/plugin-default-config.conf
-Source2: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/REQUEST-900-0-PLUGINS-CONFIG.conf
-Source3: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/REQUEST-900-EXCLUSION-RULES-PLUGINS-BEFORE-CRS.conf
-Source4: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/RESPONSE-999-EXCLUSION-RULES-PLUGINS-AFTER-CRS.conf
+Source1: https://raw.githubusercontent.com/german-gonzalez-ruiz/crs-plugins-rpm/main/config/plugin-default-config.conf
+Source2: https://raw.githubusercontent.com/german-gonzalez-ruiz/crs-plugins-rpm/main/config/REQUEST-900-0-PLUGINS-CONFIG.conf
+Source3: https://raw.githubusercontent.com/german-gonzalez-ruiz/crs-plugins-rpm/main/config/REQUEST-900-EXCLUSION-RULES-PLUGINS-BEFORE-CRS.conf
+Source4: https://raw.githubusercontent.com/german-gonzalez-ruiz/crs-plugins-rpm/main/config/RESPONSE-999-EXCLUSION-RULES-PLUGINS-AFTER-CRS.conf
 
 BuildArch: noarch
 Requires: mod_security >= 2.9.6
