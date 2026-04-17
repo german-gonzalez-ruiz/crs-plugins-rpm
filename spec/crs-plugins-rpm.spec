@@ -28,23 +28,21 @@ This package provides a minimum set of plugins for OWASP Core Rule set.
 %install
 install -d %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
 
-# Setup plugins default config as disabled
-mv config/plugin-default-config.conf %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
 
-# To exclude rules (pre/post)
-mv config/REQUEST-900-0-PLUGINS-CONFIG.conf %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/REQUEST-900-0-PLUGINS-CONFIG.conf
-mv config/REQUEST-900-EXCLUSION-PLUGINS-BEFORE-CRS.conf %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/REQUEST-900-EXCLUSION-PLUGINS-BEFORE-CRS.conf
-mv config/RESPONSE-999-EXCLUSION-PLUGINS-AFTER-CRS.conf %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/RESPONSE-999-EXCLUSION-PLUGINS-AFTER-CRS.conf
+# Add Include *-config, *-before and *-after for plugins files
+install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/plugin-default-config.conf
+install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/REQUEST-900-0-PLUGINS-CONFIG.conf
+install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/REQUEST-900-EXCLUSION-PLUGINS-BEFORE-CRS.conf
+install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/RESPONSE-999-EXCLUSION-PLUGINS-AFTER-CRS.conf
 
-# Process the set of downloaded plugins to deploy them in an organized manner into their corresponding directory
-install -Dp -m0644 %{Source0} %{_tmppath}/plugins/
-mv %{_tmppath}/plugins/mod_security_crs_plugins-%{version}/mod_security_crs_plugins-%{version}/* %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
+# Deploy plugins
+mv %{_builddir}/mod_security_crs_plugins-%{version}/* %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
 
 
 %files
-%config %{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
+%config %{_sysconfdir}/httpd/modsecurity.d/activated_rules/*
 
 
 %changelog
-* Thu Mar 19 2026 German Gonzalez <ggonzalez@tilsor.com.uy> - 1.0
+* Fri Apr 17 2026 German Gonzalez <ggonzalez@tilsor.com.uy> - 1.0
 - Installation of plugins for WordPress, Nextcloud, and Drupal for OWASP CRS v4
