@@ -9,8 +9,8 @@ Group: System Environment/Daemons
 Source0: https://codeload.github.com/german-gonzalez-ruiz/mod_security_crs_plugins/tar.gz/refs/tags/v%{version}
 Source1: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/plugin-default-config.conf
 Source2: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/REQUEST-900-0-PLUGINS-CONFIG.conf
-Source3: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/REQUEST-900-EXCLUSION-PLUGINS-BEFORE-CRS.conf
-Source4: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/RESPONSE-999-EXCLUSION-PLUGINS-AFTER-CRS.conf
+Source3: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/REQUEST-900-EXCLUSION-RULES-PLUGINS-BEFORE-CRS.conf
+Source4: https://raw.githubusercontent.com/german-gonzalez-ruiz/mod_security_crs_plugins/main/config/RESPONSE-999-EXCLUSION-RULES-PLUGINS-AFTER-CRS.conf
 
 BuildArch: noarch
 Requires: mod_security >= 2.9.6
@@ -32,8 +32,8 @@ install -d %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugin
 # Add Include *-config, *-before and *-after for plugins files
 install -Dp -m0644 %{SOURCE1} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/plugin-default-config.conf
 install -Dp -m0644 %{SOURCE2} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/REQUEST-900-0-PLUGINS-CONFIG.conf
-install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/REQUEST-900-EXCLUSION-PLUGINS-BEFORE-CRS.conf
-install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/RESPONSE-999-EXCLUSION-PLUGINS-AFTER-CRS.conf
+install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/REQUEST-900-EXCLUSION-RULES-PLUGINS-BEFORE-CRS.conf
+install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/RESPONSE-999-EXCLUSION-RULES-PLUGINS-AFTER-CRS.conf
 
 # Deploy plugins
 mv %{_builddir}/mod_security_crs_plugins-%{version}/* %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
