@@ -38,7 +38,8 @@ install -Dp -m0644 %{SOURCE3} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/act
 install -Dp -m0644 %{SOURCE4} %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/RESPONSE-999-EXCLUSION-RULES-PLUGINS-AFTER-CRS.conf
 
 # Deploy plugins
-mv %{_builddir}/mod_security_crs_plugins-%{version}/* %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
+#mv %{_builddir}/mod_security_crs_plugins-%{version}/* %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
+mv %{_builddir}/crs-plugins-rpm-%{version}/plugins/* %{buildroot}%{_sysconfdir}/httpd/modsecurity.d/activated_rules/plugins/
 
 
 %files
