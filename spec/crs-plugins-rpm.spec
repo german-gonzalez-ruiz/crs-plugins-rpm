@@ -22,7 +22,8 @@ Obsoletes: mod_security_crs-extras < 3.0.0
 This package provides a minimum set of plugins for OWASP Core Rule set.
 
 %prep
-%setup -q -n mod_security_crs_plugins-%{version}
+#%%setup -q -n mod_security_crs_plugins-%%{version}
+%setup -q -n crs-plugins-rpm-%{version}
 
 %build
 
