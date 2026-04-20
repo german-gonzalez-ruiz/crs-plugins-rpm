@@ -6,7 +6,8 @@ License: ASL 2.0
 URL: https://github.com/german-gonzalez-ruiz/mod_security_crs_plugins
 Group: System Environment/Daemons
 
-Source0: https://codeload.github.com/german-gonzalez-ruiz/mod_security_crs_plugins/tar.gz/refs/tags/v%{version}
+#Source0: https://codeload.github.com/german-gonzalez-ruiz/mod_security_crs_plugins/tar.gz/refs/tags/v%%{version}
+Source0: https://codeload.github.com/german-gonzalez-ruiz/crs-plugins-rpm/tar.gz/refs/tags/v%{version}
 Source1: https://raw.githubusercontent.com/german-gonzalez-ruiz/crs-plugins-rpm/main/config/plugin-default-config.conf
 Source2: https://raw.githubusercontent.com/german-gonzalez-ruiz/crs-plugins-rpm/main/config/REQUEST-900-0-PLUGINS-CONFIG.conf
 Source3: https://raw.githubusercontent.com/german-gonzalez-ruiz/crs-plugins-rpm/main/config/REQUEST-900-EXCLUSION-RULES-PLUGINS-BEFORE-CRS.conf
